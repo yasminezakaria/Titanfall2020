@@ -10,6 +10,7 @@ public class HeavyWeaponExplosion : MonoBehaviour
     private float rocketRadius = 3f;
     private float grenadeRadius = 4f;
     private Collider[] shootedEnemies;
+    private GameObject instantiatedObj;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -19,7 +20,7 @@ public class HeavyWeaponExplosion : MonoBehaviour
 
     void Explosion(Vector3 centerPoint)
     {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        instantiatedObj = Instantiate(explosionEffect, transform.position, transform.rotation);
         if (rocketLauncher)
         {
             shootedEnemies = Physics.OverlapSphere(centerPoint, rocketRadius);
@@ -35,6 +36,7 @@ public class HeavyWeaponExplosion : MonoBehaviour
             foreach (Collider shootedEnemy in shootedEnemies)
             {
                 Debug.Log(shootedEnemy.gameObject.name);
+                Destroy(instantiatedObj, 3f);
                 //decrease damage by 125
             }
         }
