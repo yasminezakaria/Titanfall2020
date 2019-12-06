@@ -17,6 +17,11 @@ public class PilotHealth : MonoBehaviour
     public Image ImageAmmo;
     public Text TxtAmmo;
 
+    //Pilot titanFall text and Image
+    public Image titanFall;
+    public Text Txttitanfall;
+    int currentTitanMeter=0;
+
     private int min = 0;
     private int max = 100;
 
@@ -29,10 +34,12 @@ public class PilotHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        setHealth(41);
-        setWeaponName("Gun");
+        setHealth(100);
+        setWeaponName("SnipperRiffel");
+        setTitanfall(100, 0);
     }
 
+    //Set the player health
     public void setHealth(int health)
     {
         if (health != CurrentHealth)
@@ -60,6 +67,20 @@ public class PilotHealth : MonoBehaviour
         ammopercentage = ((float)currentAmmo / (float)max);
         TxtAmmo.text=string.Format("{0}", Mathf.RoundToInt(ammopercentage * 100)+"%");
         ImageAmmo.fillAmount = ammopercentage;
+    }
+
+    //Set the titanfall meter
+    public void setTitanfall(int max,int extraScore)
+    {
+        float percent = 0;
+        if (currentTitanMeter + extraScore <=100)
+        {
+            percent = ((float)(currentTitanMeter + extraScore) / (float)max);
+            Txttitanfall.text = string.Format("{0}", Mathf.RoundToInt(percent * 100) + "%");
+            titanFall.fillAmount = percent;
+            currentTitanMeter = currentTitanMeter+extraScore;
+        }
+        
     }
 
     public void setWeaponName(string name)

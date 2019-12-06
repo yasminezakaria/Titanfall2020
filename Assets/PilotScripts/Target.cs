@@ -5,14 +5,18 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public int health = 100;
-    public void TakeDamage(int amount){
-        health -= amount;
-        Debug.Log("Health is "+health);
+
+    public PilotHealth ph;
+
+    public void TakeDamage(int Damageamount, int titanfall){
+        health -= Damageamount;
         if(health<=0){
-            Die();
+            Die(titanfall);
         }
     }
-    void Die(){
+
+    void Die(int amount){
+        ph.setTitanfall(100, amount);
         Destroy(this.gameObject);
     }
 }

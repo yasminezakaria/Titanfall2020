@@ -14,6 +14,7 @@ public class WallRun : MonoBehaviour
     private CharacterController cc;
     private FirstPersonController fpc;
     private Rigidbody rb;
+    
 
 
     // Start is called before the first frame update
@@ -42,15 +43,11 @@ public class WallRun : MonoBehaviour
             }
             else
             {
-                fpc.m_MouseLook.setSentivity(2f, 2f);   
-                pausemenuflag = false;
-                Time.timeScale = 1.0f;
-                pausemenu.SetActive(false);
+                resume();
             }
         }
 
-        //Titanfall 
-
+        //WallRun
         if (Input.GetKey(KeyCode.LeftShift) && !cc.isGrounded)
         {
             rayL.origin = transform.position;
@@ -85,6 +82,15 @@ public class WallRun : MonoBehaviour
         }
         
     }
+
+   public void resume()
+    {
+        fpc.m_MouseLook.setSentivity(2f, 2f);
+        pausemenuflag = false;
+        Time.timeScale = 1.0f;
+        pausemenu.SetActive(false);
+    }
+
 
     IEnumerator afterRun(){
         yield return new WaitForSeconds(2f);

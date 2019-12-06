@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class sniperRifle : MonoBehaviour
 {
-    public int damage = 85;
+    public int damage = 100;
     public string firingMode = "single shot";
     public int fireRate = 1;
     public int ammoCount = 6;
@@ -14,7 +14,7 @@ public class sniperRifle : MonoBehaviour
     public float nextTimeToFire = 0f;
     private int count;
 
-    private PilotHealth ph;
+    public PilotHealth ph;
     // --------------------------------------
 
     public Camera fpsCam;
@@ -22,7 +22,6 @@ public class sniperRifle : MonoBehaviour
 
     void Start()
     {
-        ph = FindObjectOfType<PilotHealth>();
     }
 
     void Update()
@@ -39,9 +38,12 @@ public class sniperRifle : MonoBehaviour
             {
                 nextTimeToFire = Time.time + 1 / fireRate;
                 shoot();
-                Debug.Log("Ammo count is" + ammoCount);
             }
         }
+    }
+    public void setAmmo()
+    {
+        ph.setAmmo(6, ammoCount);
     }
     void shoot()
     {
@@ -49,11 +51,20 @@ public class sniperRifle : MonoBehaviour
         ammoCount -= 1;
         ph.setAmmo(6, ammoCount);
         RaycastHit hit;
-        Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range);
-        // Debug.Log(hit.transform.name);
-        // Target target = hit.transform.GetComponent<Target>();
-        // if(target!=null){
-        //     target.TakeDamage(damage);
-        // }
+        if( Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
+            {
+                if (hit.transform.CompareTag("EnemyTitan"))
+                {
+                    target.TakeDamage(damage, 50);
+                }
+                if (hit.transform.CompareTag("EnemyPilot"))
+                {
+                    target.TakeDamage(damage, 10);
+                }
+            }
+        }
     }
 }

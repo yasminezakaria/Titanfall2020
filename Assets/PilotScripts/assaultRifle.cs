@@ -19,12 +19,13 @@ public class assaultRifle : MonoBehaviour
     public Camera fpsCam;
     public ParticleSystem muzzleFlash;
 
-    private PilotHealth ph;
+    public PilotHealth ph;
 
     void Start()
     {
-        ph = FindObjectOfType<PilotHealth>();
+       
     }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.R))
@@ -38,9 +39,12 @@ public class assaultRifle : MonoBehaviour
             {
                 nextTimeToFire = Time.time + 1 / fireRate;
                 shoot();
-                Debug.Log("Ammo count is" + ammoCount);
             }
         }
+    }
+    public void setAmmo()
+    {
+        ph.setAmmo(35, ammoCount);
     }
     void shoot()
     {
@@ -49,13 +53,21 @@ public class assaultRifle : MonoBehaviour
         ammoCount -= 1;
         ph.setAmmo(35, ammoCount);
         RaycastHit hit;
-        Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range);
-
-        // Debug.Log(hit.transform.name);
-        // Target target = hit.transform.GetComponent<Target>();
-        // if(target!=null){
-        //     target.TakeDamage(damage);
-        // }
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
+            {
+                if (hit.transform.CompareTag("EnemyTitan"))
+                {
+                    target.TakeDamage(damage, 50);
+                }
+                if (hit.transform.CompareTag("EnemyPilot"))
+                {
+                    target.TakeDamage(damage, 10);
+                }
+            }
+        }
     }
 
 }
