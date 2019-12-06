@@ -8,12 +8,34 @@ public class weaponSwitching : MonoBehaviour
 
     public int selectedWeapon = 0;
     public Text WeaponName;
-    
+
+    public Image ammo;
+    public Text ammoTxt;
+
+    private assaultRifle ar;
+    private sniperRifle sr;
+    private shotgun sg;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        foreach (Transform w in transform)
+        {
+            if (w.gameObject.name == "SnipperRiffel")
+            {
+                sr = w.GetComponent<sniperRifle>();
+            }
+            if (w.gameObject.name == "AssultRiffel")
+            {
+                ar = w.GetComponent<assaultRifle>();
+            }
+            if (w.gameObject.name == "ShotGun")
+            {
+               sg = w.GetComponent<shotgun>();
+            }
+        }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -38,7 +60,20 @@ public class weaponSwitching : MonoBehaviour
             if (i == selectedWeapon)
             {
                 w.gameObject.SetActive(true);
-                WeaponName.text = w.gameObject.name.ToString();
+                WeaponName.text = w.gameObject.name;
+                if (w.gameObject.name == "SnipperRiffel")
+                {
+                    sr.setAmmo();
+                }
+                if (w.gameObject.name == "AssultRiffel")
+                {
+                    ar.setAmmo();
+                }
+                if (w.gameObject.name == "ShotGun")
+                {
+                    sg.setAmmo();
+                }
+                
             }
             else
             {

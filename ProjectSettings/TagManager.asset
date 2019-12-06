@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - rocketLauncher
-  - grenadeLauncher
+  - Wall
+  - EnemyPilot
+  - EnemyTitan
   layers:
   - Default
   - TransparentFX

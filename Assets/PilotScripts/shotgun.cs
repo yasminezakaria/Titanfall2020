@@ -13,7 +13,7 @@ public class shotgun : MonoBehaviour
 
     public int count;
 
-    private PilotHealth ph;
+    public PilotHealth ph;
     // --------------------------------------
 
     public Camera fpsCam;
@@ -21,7 +21,7 @@ public class shotgun : MonoBehaviour
 
     void Start()
     {
-        ph = FindObjectOfType<PilotHealth>();
+        
     }
 
     void Update()
@@ -44,17 +44,32 @@ public class shotgun : MonoBehaviour
             }
         }
     }
+
+    public void setAmmo()
+    {
+        ph.setAmmo(12, ammoCount);
+    }
+
     void shoot()
     {
         muzzleFlash.Play();
         ammoCount -= 1;
-        ph.setAmmo(6, ammoCount);
+        ph.setAmmo(12, ammoCount);
         RaycastHit hit;
-        Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range);
-        // Debug.Log(hit.transform.name);
-        // Target target = hit.transform.GetComponent<Target>();
-        // if(target!=null){
-        //     target.TakeDamage(damage);
-        // }
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        {
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
+            {
+                if (hit.transform.CompareTag("EnemyTitan"))
+                {
+                    target.TakeDamage(damage, 50);
+                }
+                if (hit.transform.CompareTag("EnemyPilot"))
+                {
+                    target.TakeDamage(damage, 10);
+                }
+            }
+        }
     }
 }
