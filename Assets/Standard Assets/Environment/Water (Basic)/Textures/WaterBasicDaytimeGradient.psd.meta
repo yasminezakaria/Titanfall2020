@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 guid: 047330f39d11745ad0004adb8d76c639
 TextureImporter:
+<<<<<<< HEAD
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
@@ -13,11 +14,23 @@ TextureImporter:
     borderMipMap: 0
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
+=======
+  fileIDToRecycleName: {}
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+>>>>>>> 6b8f664034fee187d3aa74e28beee2b14595bb0d
     mipMapFadeDistanceStart: 2
     mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
+<<<<<<< HEAD
     heightScale: 0.1
     normalMapFilter: 0
   isReadable: 0
@@ -26,10 +39,21 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
+=======
+    heightScale: .100000001
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+>>>>>>> 6b8f664034fee187d3aa74e28beee2b14595bb0d
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 32
   textureSettings:
+<<<<<<< HEAD
     serializedVersion: 2
     filterMode: 1
     aniso: 1
@@ -39,11 +63,21 @@ TextureImporter:
     wrapW: 1
   nPOTScale: 1
   lightmap: 0
+=======
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapMode: 1
+  nPOTScale: 1
+  lightmap: 0
+  rGBM: 0
+>>>>>>> 6b8f664034fee187d3aa74e28beee2b14595bb0d
   compressionQuality: 50
   spriteMode: 0
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
+<<<<<<< HEAD
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -89,3 +123,16 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 0
+  textureType: 0
+  buildTargetSettings: []
+  spriteSheet:
+    sprites: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+>>>>>>> 6b8f664034fee187d3aa74e28beee2b14595bb0d
