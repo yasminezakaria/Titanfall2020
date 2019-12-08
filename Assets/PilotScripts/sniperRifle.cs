@@ -30,6 +30,7 @@ public class sniperRifle : MonoBehaviour
         {
             ammoCount = 6;
             ph.setAmmo(6, ammoCount);
+            
         }
 
         if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire && firingMode == "single shot")

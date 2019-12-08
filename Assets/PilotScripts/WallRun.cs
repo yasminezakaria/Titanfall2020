@@ -7,14 +7,17 @@ public class WallRun : MonoBehaviour
 {
     Ray rayR;
     Ray rayL;
+    public GameObject pausemenu;
+    public PilotHealth ph;
     private RaycastHit hitR;
     private RaycastHit hitL;
-
+    private bool pausemenuflag = false;
     private CharacterController cc;
     private FirstPersonController fpc;
     private Rigidbody rb;
+ 
 
-    //public GameObject titanfallTimeline;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,7 @@ public class WallRun : MonoBehaviour
         cc = FindObjectOfType<CharacterController>();
         rb = FindObjectOfType<Rigidbody>();
         fpc = FindObjectOfType<FirstPersonController>();
-        
+
     }
 
    
@@ -31,6 +34,36 @@ public class WallRun : MonoBehaviour
     void Update()
     {
 
+        //TitanFall Meter
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (ph.getTitanfallMeter() == 100)
+            {
+                Debug.Log("The titanfall is happening!!");
+            }
+             ph.setTitanfall(100, 0);
+        }
+        //Escape pause menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pausemenuflag == false)
+            {
+                fpc.m_MouseLook.setSentivity(0f, 0f);
+                pausemenuflag = true;
+                pausemenu.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                resume();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+        }
+
+        //WallRun
         if (Input.GetKey(KeyCode.LeftShift) && !cc.isGrounded)
         {
             rayL.origin = transform.position;
@@ -59,13 +92,21 @@ public class WallRun : MonoBehaviour
                     rb.useGravity = false;
                     StartCoroutine(afterRun());
                 }
-
             }
 
             
         }
         
     }
+
+   public void resume()
+    {
+        fpc.m_MouseLook.setSentivity(2f, 2f);
+        pausemenuflag = false;
+        Time.timeScale = 1.0f;
+        pausemenu.SetActive(false);
+    }
+
 
     IEnumerator afterRun(){
         yield return new WaitForSeconds(2f);

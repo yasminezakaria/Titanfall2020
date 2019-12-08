@@ -80,6 +80,16 @@ public class PilotHealth : MonoBehaviour
             titanFall.fillAmount = percent;
             currentTitanMeter = currentTitanMeter+extraScore;
         }
+        else
+        {
+            if (extraScore == 0)
+            {
+                currentTitanMeter = 0;
+                Txttitanfall.text = string.Format("{0}", Mathf.RoundToInt(0 * 100) + "%");
+                titanFall.fillAmount = percent;
+                currentTitanMeter = currentTitanMeter + extraScore;
+            }
+        }
         
     }
 
