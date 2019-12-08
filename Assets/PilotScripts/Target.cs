@@ -5,12 +5,11 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public int health = 100;
-
     public PilotHealth ph;
 
     public void TakeDamage(int Damageamount, int titanfall){
         health -= Damageamount;
-        if(health<=0){
+        if (health<=0){
             Die(titanfall);
         }
     }

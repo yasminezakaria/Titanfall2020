@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class sniperRifle : MonoBehaviour
 {
-    public int damage = 100;
+    public int damage = 85;
     public string firingMode = "single shot";
     public int fireRate = 1;
     public int ammoCount = 6;
@@ -63,7 +63,8 @@ public class sniperRifle : MonoBehaviour
                 }
                 if (hit.transform.CompareTag("EnemyPilot"))
                 {
-                    target.TakeDamage(damage, 10);
+                    target.gameObject.GetComponent<EnemyPilot>().takeDamage(85);
+                    ph.setTitanfall(100, 10);
                 }
             }
         }
