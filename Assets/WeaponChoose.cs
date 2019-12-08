@@ -82,7 +82,7 @@ public class WeaponChoose : MonoBehaviour
     {
        if(primaryWeaponcounter==2 && heavyWeapon == 1)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
             SceneManager.LoadScene(1);
         }
         

@@ -26,6 +26,10 @@ public class RocketLauncher : MonoBehaviour
             ShootRocket();
         }
     }
+    public void setAmmo()
+    {
+        ph.setAmmo(100, 100);
+    }
     void ShootRocket()
     {
 		ph.setAmmo(100, 0);
