@@ -7,14 +7,16 @@ public class WallRun : MonoBehaviour
 {
     Ray rayR;
     Ray rayL;
+    public GameObject pausemenu;
+    public PilotHealth ph;
     private RaycastHit hitR;
     private RaycastHit hitL;
-    public GameObject pausemenu;
     private bool pausemenuflag = false;
     private CharacterController cc;
     private FirstPersonController fpc;
     private Rigidbody rb;
-    
+ 
+
 
 
     // Start is called before the first frame update
@@ -31,6 +33,8 @@ public class WallRun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Titanfall
+     
         //Escape pause menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {

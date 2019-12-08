@@ -83,6 +83,12 @@ public class PilotHealth : MonoBehaviour
         
     }
 
+    //Get the current titian fall meter
+    public int getTitanfallMeter()
+    {
+        return currentTitanMeter;
+    }
+
     public void setWeaponName(string name)
     {
         TxtWeapon.text = name;

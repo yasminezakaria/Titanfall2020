@@ -14,6 +14,7 @@ public class WallRun : MonoBehaviour
     private FirstPersonController fpc;
     private Rigidbody rb;
 
+    //public GameObject titanfallTimeline;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class WallRun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKey(KeyCode.LeftShift) && !cc.isGrounded)
         {
             rayL.origin = transform.position;

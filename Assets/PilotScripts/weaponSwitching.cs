@@ -21,12 +21,12 @@ public class weaponSwitching : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bool [] array =FindObjectOfType<WeaponChoose>().getData();
+        //bool [] array =FindObjectOfType<WeaponChoose>().getData();
 
-        for(int i = 0; i < array.Length; i++)
-        {
-            //if(array[i]
-        }
+        //for(int i = 0; i < array.Length; i++)
+        //{
+        //    //if(array[i]
+        //}
         foreach (Transform w in transform)
         {
             if (w.gameObject.name == "SnipperRiffel")
