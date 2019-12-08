@@ -67,6 +67,7 @@ public class shotgun : MonoBehaviour
                 }
                 if (hit.transform.CompareTag("EnemyPilot"))
                 {
+                    target.gameObject.GetComponent<EnemyPilot>().takeDamage(70);
                     target.TakeDamage(damage, 10);
                 }
             }

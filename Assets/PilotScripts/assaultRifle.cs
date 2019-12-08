@@ -64,6 +64,7 @@ public class assaultRifle : MonoBehaviour
                 }
                 if (hit.transform.CompareTag("EnemyPilot"))
                 {
+                    target.gameObject.GetComponent<EnemyPilot>().takeDamage(10);
                     target.TakeDamage(damage, 10);
                 }
             }
