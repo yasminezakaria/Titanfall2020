@@ -35,10 +35,10 @@ public class EnemyPilotRifle : MonoBehaviour
     IEnumerator attack()
     {
         routineFinished = false;
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        //Debug.Log("Started Coroutine at timestamp : " + Time.time);
         yield return new WaitForSeconds(10);
         //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+        //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
         routineFinished = true;
     }
 }

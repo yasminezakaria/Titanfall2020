@@ -16,6 +16,6 @@ public class Target : MonoBehaviour
 
     void Die(int amount){
         ph.setTitanfall(100, amount);
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }
