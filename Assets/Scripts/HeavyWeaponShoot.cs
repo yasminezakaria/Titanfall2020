@@ -7,8 +7,8 @@ public class HeavyWeaponShoot : MonoBehaviour
     public GameObject rocketPrefab;
     public GameObject grenadePrefab;
     public float weaponForce;
-    public bool rocketLauncher;
-    public bool grenadeLauncher;
+    public bool rocketLauncher=false;
+    public bool grenadeLauncher=true;
 
     // Update is called once per frame
     void Update()

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HeavyWeaponExplosion : MonoBehaviour
 {
-    public bool rocketLauncher;
-    public bool grenadeLauncher;
+    public bool rocketLauncher=true;
+    public bool grenadeLauncher=false;
     public GameObject explosionEffect;
     private float rocketRadius = 3f;
     private float grenadeRadius = 4f;
@@ -21,8 +21,7 @@ public class HeavyWeaponExplosion : MonoBehaviour
 
     void Explosion(Vector3 centerPoint)
     {
-        
-        instantiatedObj = Instantiate(explosionEffect, transform.position, transform.rotation);
+           
         if (rocketLauncher)
         {
             shootedEnemies = Physics.OverlapSphere(centerPoint, rocketRadius);
@@ -32,11 +31,13 @@ public class HeavyWeaponExplosion : MonoBehaviour
                 Target target = shootedEnemy.gameObject.GetComponent<Target>();
                 if (shootedEnemy.gameObject.tag == "EnemyTitan")
                 {
+                    instantiatedObj = Instantiate(explosionEffect, transform.position, transform.rotation);
                     target.TakeDamage(150, 50);
                 }
 
                  if(shootedEnemy.gameObject.tag == "EnemyPilot")
                 {
+                    instantiatedObj = Instantiate(explosionEffect, transform.position, transform.rotation);
                     target.TakeDamage(150, 10);
                 }
                 //decrease damage by 150

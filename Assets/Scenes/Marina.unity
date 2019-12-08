@@ -698,22 +698,22 @@ PrefabInstance:
     - target: {fileID: 7802228407274854848, guid: 531ca48fffdb345288c21cc7bf71ebe7,
         type: 3}
       propertyPath: rocketLauncher
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7802228407274854848, guid: 531ca48fffdb345288c21cc7bf71ebe7,
         type: 3}
       propertyPath: grenadeLauncher
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7802228407365601160, guid: 531ca48fffdb345288c21cc7bf71ebe7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2262769023076004383, guid: 531ca48fffdb345288c21cc7bf71ebe7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 531ca48fffdb345288c21cc7bf71ebe7, type: 3}
