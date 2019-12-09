@@ -54,19 +54,19 @@ public class sniperRifle : MonoBehaviour
         RaycastHit hit;
         if( Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
-            {
-                if (hit.transform.CompareTag("EnemyTitan"))
-                {
-                    target.TakeDamage(damage, 50);
-                }
+            //Target target = hit.transform.GetComponent<Target>();
+            //if (target != null)
+            //{
+                //if (hit.transform.CompareTag("EnemyTitan"))
+                //{
+                //    hit.TakeDamage(damage, 50);
+                //}
                 if (hit.transform.CompareTag("EnemyPilot"))
                 {
-                    target.gameObject.GetComponent<EnemyPilot>().takeDamage(85);
+                    hit.transform.gameObject.GetComponent<EnemyPilot>().takeDamage(85);
                     ph.setTitanfall(100, 10);
                 }
-            }
+            //}
         }
     }
 }
