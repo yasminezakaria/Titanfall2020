@@ -30,7 +30,7 @@ public class WeaponChoose : MonoBehaviour
 
     public void chooseGun()
     {
-        if (primaryWeaponcounter<2)
+        if (primaryWeaponcounter<1)
         {
             isGun = true;
             primaryWeaponcounter++;
@@ -40,7 +40,7 @@ public class WeaponChoose : MonoBehaviour
 
     public void chooseSnipper()
     {
-        if (primaryWeaponcounter < 2)
+        if (primaryWeaponcounter < 1)
         {
             isSnipper = true;
             primaryWeaponcounter++;
@@ -50,7 +50,7 @@ public class WeaponChoose : MonoBehaviour
 
     public void chooseAssault()
     {
-        if (primaryWeaponcounter < 2)
+        if (primaryWeaponcounter < 1)
         {
             isAssault = true;
             primaryWeaponcounter++;
@@ -80,7 +80,7 @@ public class WeaponChoose : MonoBehaviour
 
     public void play()
     {
-       if(primaryWeaponcounter==2 && heavyWeapon == 1)
+       if(primaryWeaponcounter==1 && heavyWeapon == 1)
         {
             //gameObject.SetActive(false);
             SceneManager.LoadScene(1);
