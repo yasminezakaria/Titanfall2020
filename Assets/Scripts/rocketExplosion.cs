@@ -8,6 +8,7 @@ public class rocketExplosion : MonoBehaviour
     private float rocketRadius = 3f;
     private Collider[] shootedEnemies;
     private GameObject instantiatedObj;
+    public PilotHealth ph;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -21,17 +22,19 @@ public class rocketExplosion : MonoBehaviour
         foreach (Collider shootedEnemy in shootedEnemies)
         {
             Destroy(instantiatedObj, 3f);
-            Target target = shootedEnemy.gameObject.GetComponent<Target>();
             if (shootedEnemy.gameObject.tag == "EnemyTitan")
             {
                 instantiatedObj = Instantiate(explosionEffect, transform.position, transform.rotation);
-                target.TakeDamage(150, 50);
+                shootedEnemy.gameObject.GetComponent<EnemyTitan>().takeDamage(150);
+                ph.setTitanfall(100, 50);
             }
 
             if (shootedEnemy.gameObject.tag == "EnemyPilot")
             {
                 instantiatedObj = Instantiate(explosionEffect, transform.position, transform.rotation);
-                target.TakeDamage(150, 10);
+                shootedEnemy.gameObject.GetComponent<EnemyPilot>().takeDamage(150);
+                ph.setTitanfall(100, 10);
+
             }
         }
         Destroy(gameObject);

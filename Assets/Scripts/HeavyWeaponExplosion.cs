@@ -11,6 +11,8 @@ public class HeavyWeaponExplosion : MonoBehaviour
     private float grenadeRadius = 4f;
     private Collider[] shootedEnemies;
     private GameObject instantiatedObj;
+    public PilotHealth ph;
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -28,17 +30,19 @@ public class HeavyWeaponExplosion : MonoBehaviour
             foreach (Collider shootedEnemy in shootedEnemies)
             {
                 Debug.Log(shootedEnemy.gameObject.name);
-                Target target = shootedEnemy.gameObject.GetComponent<Target>();
+                //Target target = shootedEnemy.gameObject.GetComponent<Target>();
                 if (shootedEnemy.gameObject.tag == "EnemyTitan")
                 {
                     instantiatedObj = Instantiate(explosionEffect, transform.position, transform.rotation);
-                    target.TakeDamage(150, 50);
+                    //target.TakeDamage(150, 50);
+                    ph.setTitanfall(100, 50);
                 }
 
                  if(shootedEnemy.gameObject.tag == "EnemyPilot")
                 {
                     instantiatedObj = Instantiate(explosionEffect, transform.position, transform.rotation);
-                    target.TakeDamage(150, 10);
+                    //target.TakeDamage(150, 10);
+                    shootedEnemy.gameObject.GetComponent<EnemyPilot>().takeDamage(150);
                 }
                 //decrease damage by 150
             }
@@ -50,15 +54,18 @@ public class HeavyWeaponExplosion : MonoBehaviour
             {
                 Debug.Log(shootedEnemy.gameObject.name);
                 Destroy(instantiatedObj, 3f);
-                Target target = shootedEnemy.gameObject.GetComponent<Target>();
+                //Target target = shootedEnemy.gameObject.GetComponent<Target>();
                 if (shootedEnemy.gameObject.tag == "EnemyTitan")
                 {
-                    target.TakeDamage(125, 50);
+                    //target.TakeDamage(125, 50);
+                    shootedEnemy.gameObject.GetComponent<EnemyTitan>().takeDamage(125);
+                    ph.setTitanfall(100, 50);
                 }
 
                 if (shootedEnemy.gameObject.tag == "EnemyPilot")
                 {
-                    target.TakeDamage(125, 10);
+                    shootedEnemy.gameObject.GetComponent<EnemyPilot>().takeDamage(125);
+                    ph.setTitanfall(100, 10);
                 }
                 //decrease damage by 125
             }
