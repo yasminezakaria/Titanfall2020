@@ -37,11 +37,13 @@ public class Crouch : MonoBehaviour
     {
         if (!m_Crouch)
         {
-          cc.height = original_height;
+            cc.height = original_height;
+            //cc.transform.localScale += new Vector3(0,4,0);
         }
         else
         {
-          cc.height = crouched_height;  
+            cc.height = crouched_height;
+            //cc.transform.localScale -= new Vector3(0, 4, 0);
         }
     }
 }
